@@ -493,9 +493,9 @@ public class ExcelUtil {
                     Map<String, Object> map = new HashMap<String, Object>();
                     for (String k : titleMap.keySet()) {
                         Integer index = titleMap.get(k);
-                        //String value = row.getCell(index).getStringCellValue();
-                        Object cellValueObj = getCellValue(row.getCell(index));
+                        Cell cellValueObj = row.getCell(index);
                         String value=cellValueObj==null?"":cellValueObj.toString();
+                        //测试时使用
                         //System.out.println(String.format("%s%s",k,value));
                         map.put(k, value);
                     }
