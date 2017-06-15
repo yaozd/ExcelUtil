@@ -493,7 +493,10 @@ public class ExcelUtil {
                     Map<String, Object> map = new HashMap<String, Object>();
                     for (String k : titleMap.keySet()) {
                         Integer index = titleMap.get(k);
-                        String value = row.getCell(index).getStringCellValue();
+                        //String value = row.getCell(index).getStringCellValue();
+                        Object cellValueObj = getCellValue(row.getCell(index));
+                        String value=cellValueObj==null?"":cellValueObj.toString();
+                        //System.out.println(String.format("%s%s",k,value));
                         map.put(k, value);
                     }
                     list.add((T) map);
